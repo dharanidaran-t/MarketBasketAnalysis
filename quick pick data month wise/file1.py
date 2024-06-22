@@ -74,3 +74,21 @@ combined_df['Day'] = combined_df['Date'].dt.day
 combined_df['Day of week'] = combined_df['Date'].dt.day_name()
 combined_df
 combined_df.to_csv(r'C:/Users/Win 10/Desktop/Market-Basket-Analysis/groceries_df.csv',index=False)
+combined_df['Bill No'].unique()
+combined_df['Bill No'].nunique()
+
+'''Combined sales df is now saved in a  new csv file (groceries_df)
+Now, let us create a new df to analyzes patterns of co-occurrence.
+In this dataframe, we will display the items purchased together by a Bill No in a Single row 
+(i.e., Displaying the items purchased by a person in a single purchase column-wise).'''
+
+# Group by 'Bill Number' and create new columns for each item
+df_grouped = combined_df.groupby('Bill No')['Item Name'].apply(lambda x: pd.Series(x.values)).unstack().reset_index()
+
+# Rename columns
+df_grouped.columns = ['Bill Number'] + [f'{i+1}' for i in range(df_grouped.shape[1]-1)]
+df_grouped=df_grouped.drop(columns=['Bill Number'])
+df_grouped
+
+#Save to new csv file
+df_grouped.to_csv(r'C:/Users/Win 10/Desktop/Market-Basket-Analysis/basket_df.csv',index=False)
