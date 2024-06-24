@@ -84,10 +84,16 @@ In this dataframe, we will display the items purchased together by a Bill No in 
 
 # Group by 'Bill Number' and create new columns for each item
 df_grouped = combined_df.groupby('Bill No')['Item Name'].apply(lambda x: pd.Series(x.values)).unstack().reset_index()
-
 # Rename columns
 df_grouped.columns = ['Bill Number'] + [f'{i+1}' for i in range(df_grouped.shape[1]-1)]
 df_grouped=df_grouped.drop(columns=['Bill Number'])
+df_grouped.head(20)
+
+# Drop the rows which has NaN value at the 2nd column (column index 1)
+df_grouped = df_grouped.dropna(subset=[df_grouped.columns[1]], axis=0)
+# Drop columns from 11 to 77
+df_grouped.drop(columns=df_grouped.columns[10:77], inplace=True)
+df_grouped.head(20)
 df_grouped
 
 #Save to new csv file
