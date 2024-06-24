@@ -73,7 +73,12 @@ combined_df['Month'] = combined_df['Date'].dt.month
 combined_df['Day'] = combined_df['Date'].dt.day
 combined_df['Day of week'] = combined_df['Date'].dt.day_name()
 combined_df
+
+# Dropping the additional details
+combined_df.drop(columns=['Date','Barcode','Net Amount'],axis=1)
+
 combined_df.to_csv(r'C:/Users/Win 10/Desktop/Market-Basket-Analysis/groceries_df.csv',index=False)
+
 combined_df['Bill No'].unique()
 combined_df['Bill No'].nunique()
 
