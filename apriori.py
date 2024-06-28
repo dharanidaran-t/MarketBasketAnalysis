@@ -9,6 +9,10 @@ from mlxtend.frequent_patterns import apriori, association_rules
 # For visualisation
 import matplotlib.pyplot as plt
 import pandas as pd
+
+############################################## Code-1  ######################################
+importing cleaned basket dataframe
+
 basket_df=pd.read_csv(r'C:/Users/Win 10/Desktop/Market-Basket-Analysis/basketpractice.csv')
 print(basket_df)
 # Filling the NaN values with the word 'NA'
@@ -39,6 +43,25 @@ print(rules.sort_values(by='confidence', ascending=False).head(10))
 
 # lift tells us the strength of the rule
 print(rules.sort_values(by='lift', ascending=False).head(20))
+
+################################ code-2 ####################################
+basket1=(groceries_df.groupby(['Bill No','Item Name'])['Qty']
+        .sum().unstack().reset_index().fillna(0)
+        .set_index('Bill No'))
+
+def encode_unit(x):
+    if x<= 0:
+        return 0
+    if x>0:
+        return 1
+basket1_sets=basket1.map(encode_unit)
+
+freq_itemsets_apr=apriori(basket1_sets,min_support=0.01,use_colnames=True)
+rules_apr=association_rules(freq_itemsets_apr, metric="lift", min_threshold=0.05)
+
+#Freq Items
+freq_itemsets_apr.sort_values(by='support',ascending=False)
+
 ##################################################################
 # This code will rise Memory Error - It requires too much memory #
 ##################################################################
