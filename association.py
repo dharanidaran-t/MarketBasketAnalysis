@@ -182,6 +182,30 @@ def draw_network(rules, rules_to_show):
 
 draw_network(rules, 10)
 
+# Creating the bar plot
+import plotly.express as px
+
+fig = px.bar(rules, x=rules.index, y='support', text='support', labels={'index': 'Association Rule'})
+fig.update_traces(texttemplate='%{text:.2f}', textposition='outside')
+fig.update_layout(title='Association Rules by Support', xaxis_title='Association Rule', yaxis_title='Support')
+fig.show()
+
+#Creating Scatter Plot
+fig = px.scatter(rules, x='confidence', y='lift', title='Confidence vs Lift')
+fig.update_traces(marker=dict(size=12, color='skyblue', line=dict(width=2, color='DarkSlateGrey')), selector=dict(mode='markers'))
+fig.update_layout(xaxis_title='Confidence', yaxis_title='Lift', showlegend=False)
+fig.show()
+
+fig = px.scatter(rules, x='confidence', y='support', title='Confidence vs Support')
+fig.update_traces(marker=dict(size=12, color='skyblue', line=dict(width=2, color='DarkSlateGrey')), selector=dict(mode='markers'))
+fig.update_layout(xaxis_title='Confidence', yaxis_title='Lift', showlegend=False)
+fig.show()
+
+fig = px.scatter(rules, x='support', y='lift', title='Support vs Lift')
+fig.update_traces(marker=dict(size=12, color='skyblue', line=dict(width=2, color='DarkSlateGrey')), selector=dict(mode='markers'))
+fig.update_layout(xaxis_title='Confidence', yaxis_title='Lift', showlegend=False)
+fig.show()
+
 # Building a business application
 
 milk_rules = rules[rules['consequents'].astype(str).str.contains('EGG')]
