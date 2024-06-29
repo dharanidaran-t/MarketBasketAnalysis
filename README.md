@@ -35,6 +35,7 @@ The objective of this study is to achieve the following:
 ![image](https://github.com/dharanidaran-t/MarketBasketAnalysis/assets/173265740/b9be87c8-550c-463e-aa56-34fe6872af8d)
 
 ## 5. Research Methodology:
+![image-6](https://github.com/dharanidaran-t/MarketBasketAnalysis/assets/173265740/d63942ac-05eb-4df3-9957-2a39a0a75438)
 
 ### **5.1 Associate Rule Mining with Apriori Algorithm**
 
@@ -45,6 +46,7 @@ The objective of this study is to achieve the following:
 1. All subsets of frequent itemsets must be frequent
 
 2. Similarly incase of infrequent subset their parent set is infrequent too The algorithm works in such a way that a minimum support value is set and iterations happen with frequent itemsets. Itemsets and subsets are ignored if their support is below the threshold till there can’t be any removal.
+![image-7](https://github.com/dharanidaran-t/MarketBasketAnalysis/assets/173265740/f623e4f2-b083-42dc-8b82-777e0ed63b4a)
 
 ##### *Association rule is related to the statement of “what’ with what”. This matter can be in a form of statement on transaction activity carried out by the customers at a supermarket. From that statement, there has a strong relation to the study of customer transaction data database to determine the habit of a purchased product with what product, thus, association rule is frequently referred as market basket analysis. The significance of an associative rule can be figured in the presence of two parameters, namely **support** and **confidence**. Support (supporting value) is the percentage of combinations of product items in the database. While confidence (certainty value) is a value to determine the strength of inter-item relationships in association rules.*
 
@@ -62,6 +64,32 @@ The objective of this study is to achieve the following:
 ### **iii. Lift:**
 
  It combines both confidence and support.A lift greater than 1 suggests that the presence of the antecedent increases the chances that the consequent will occur in a given transaction. Lift below 1 indicates that purchasing the antecedent reduces the chances of purchasing the consequent in the same transaction.
+ ![image-2](https://github.com/dharanidaran-t/MarketBasketAnalysis/assets/173265740/b4f52d0b-16f5-4440-851f-6abdba1ae72e)
+
+### **5.2 Visualising the Association rules**
+
+#### Creating a Bar Plot
+![image](https://github.com/dharanidaran-t/MarketBasketAnalysis/assets/173265740/674c6ac7-41a2-43c3-9f12-3decc27e9014)
+
+#### Creating Scatter plot
+
+###### To visualize our association rules, we can plot them in a 3D scatter plot. Rules that are closer to top right are the rules that can be the most meaningful to be further dived in.
+![image](https://github.com/dharanidaran-t/MarketBasketAnalysis/assets/173265740/e902a752-8ee3-4b26-9010-31a54df9f652)
+
+#### Sub-Plots
+![image](https://github.com/dharanidaran-t/MarketBasketAnalysis/assets/173265740/9cf5f90a-5e58-4dc6-bba0-88efce1b6327)
+
+#### **Insights**
+
+- Support-confidence and Lift-Confidence has a linear relationship, which means that the most frequent items have some other items associated to it.
+
+- When it come to the relationship between Lift and Support, it is squashed when it goes beyond 0.10.
+
+- In antecedent and consequent support relationship there is no linear relationship but it’s rather inverse ,when consequent support increases the antecedent support fades out, we can consider this phenomenon as when Bread quantity of purchase increases the quantity of Butter fades.
+
+#### Creating a Network Graph
+
+![image](https://github.com/dharanidaran-t/MarketBasketAnalysis/assets/173265740/516fc8d1-7aa0-4045-8712-d93583cf6ee6)
 
 
 
