@@ -24,7 +24,23 @@ The objective of this study is to achieve the following:
 ## 4. Exploratory Data Analysis
 ![image-8](https://github.com/dharanidaran-t/MarketBasketAnalysis/assets/173265740/30ac79c9-8b8e-4c72-8947-f30645c7859e)
 
-### Image Cloud of Itemsets:
+- There is no missing values in the dATASET.
+- 4.3 Summary Statistics
+groceries=groceries_df.drop(columns=['Year','Day'],axis=1)
+groceries.describe()
+Bill No	Qty	Rate	Amount	Tax Amt	Net Amount
+count	387676.000000	387676.000000	387676.000000	387676.000000	387676.000000	387676.000000
+mean	42005.208424	1.552167	40.019062	40.803807	3.910695	44.714503
+std	24526.349380	2.210371	56.897923	65.939323	7.093541	69.919185
+min	1.000000	0.001000	0.500000	0.100000	0.000000	0.100000
+25%	20409.000000	1.000000	10.000000	10.710000	0.000000	12.000000
+50%	42698.000000	1.000000	20.000000	24.750000	1.530000	25.000000
+75%	63040.000000	1.000000	46.000000	45.270000	4.580000	50.000000
+max	84641.000000	220.000000	2250.000000	13950.000000	590.360000	13950.000000
+
+
+### Image Cloud of Item Names:
+
 ![image](https://github.com/dharanidaran-t/MarketBasketAnalysis/assets/173265740/9947d6bf-5577-4347-9e46-67f3c510380a)
 
 ### Top 10 Items- Bar Plot:
